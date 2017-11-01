@@ -23,18 +23,11 @@ namespace AppLayer
         public messageType thisMessageType;
         [DataMember(Name = "messageBody")]
         public String messageBody;
-        [DataMember(Name = "sentAs")]
-        public String sentAs;
-        [DataMember(Name = "initiator")]
-        public String initiator;
 
-        public serverMessage( messageType inputMsgType, String inputMessageBody, 
-                              String inputSentAs, String inputInitiator)
+        public serverMessage( messageType inputMsgType, String inputMessageBody)
         {
             thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
-            sentAs = inputSentAs;
-            initiator = inputInitiator;
         }
 
         private ExtensionDataObject messageDataValue;
