@@ -5,7 +5,6 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Json;
 
-
 namespace AppLayer
 {
     //construct a data contract here
@@ -13,12 +12,6 @@ namespace AppLayer
     [DataContract(Name = "serverMessage", Namespace = "serverMessage")]
     public class serverMessage : IExtensibleDataObject
     {
-        
-        [DataMember(Name = "messageID")]
-        public int messageID;
-        [DataMember(Name = "conversationID")]
-        public int conversationID;
-     
         public enum messageType
         {
            JOIN,
@@ -35,12 +28,9 @@ namespace AppLayer
         [DataMember(Name = "initiator")]
         public String initiator;
 
-
-        public serverMessage(int inputMessageID, int inputConversationID, messageType inputMsgType,
-                             String inputMessageBody, String inputSentAs, String inputInitiator)
+        public serverMessage( messageType inputMsgType, String inputMessageBody, 
+                              String inputSentAs, String inputInitiator)
         {
-            messageID = inputMessageID;
-            conversationID = inputConversationID;
             thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
             sentAs = inputSentAs;
