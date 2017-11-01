@@ -1,14 +1,13 @@
-using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Json;
 
 namespace AppLayer
 {
 
-    public class serverMessageReadWrite
+    public class messageReadWrite
     {
-        serverMessage targetMessage;
-        public serverMessageReadWrite(byte[] encodedMessage)
+        serverMessage targetMessage { get; set; }
+        public void DecodeMessage(byte[] encodedMessage)
         {
             MemoryStream rawData = new MemoryStream(encodedMessage);
             BinaryReader readingStream = new BinaryReader(rawData);
@@ -16,11 +15,20 @@ namespace AppLayer
             targetMessage = (serverMessage)messageReader.ReadObject(rawData);
         }
 
-        byte[] EncodeMessage()
+        public byte[] EncodeMessage()
         {
             MemoryStream writingStream = new MemoryStream();
             DataContractJsonSerializer messageWriter = new DataContractJsonSerializer(typeof(serverMessage));
             messageWriter.WriteObject(writingStream, targetMessage);
+            return writingStream.GetBuffer();
+        }
+
+        public byte[] EncodeMessage(serverMessage inputMessage)
+        {
+            targetMessage = inputMessage;
+            MemoryStream writingStream = new MemoryStream();
+            DataContractJsonSerializer messageWriter = new DataContractJsonSerializer(typeof(serverMessage));
+            messageWriter.WriteObject(writingStream, inputMessage);
             return writingStream.GetBuffer();
         }
     }

@@ -13,12 +13,21 @@ namespace AppLayer
     [DataContract(Name = "serverMessage", Namespace = "serverMessage")]
     public class serverMessage : IExtensibleDataObject
     {
+        
         [DataMember(Name = "messageID")]
         public int messageID;
         [DataMember(Name = "conversationID")]
         public int conversationID;
-        [DataMember(Name = "messageType")]
-        public String messageType;
+     
+        public enum messageType
+        {
+           JOIN,
+           ACK,
+           HB,
+           CHAT
+        }
+        [DataMember(Name = "thisMessageType")]
+        public messageType thisMessageType;
         [DataMember(Name = "messageBody")]
         public String messageBody;
         [DataMember(Name = "sentAs")]
@@ -27,12 +36,12 @@ namespace AppLayer
         public String initiator;
 
 
-        public serverMessage(int inputMessageID, int inputConversationID, String inputMessageType,
+        public serverMessage(int inputMessageID, int inputConversationID, messageType inputMsgType,
                              String inputMessageBody, String inputSentAs, String inputInitiator)
         {
             messageID = inputMessageID;
             conversationID = inputConversationID;
-            messageType = inputMessageType;
+            thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
             sentAs = inputSentAs;
             initiator = inputInitiator;
