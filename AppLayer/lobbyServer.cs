@@ -1,9 +1,7 @@
 ﻿using System;
 
 namespace AppLayer
-{
-    
-  
+{ 
     public class lobbyServer
     {
         public clientPlayer[] totalAssociatedPlayers;

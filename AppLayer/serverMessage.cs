@@ -51,24 +51,4 @@ namespace AppLayer
             }
         }
     }
-
-    public class serverMessageRW
-    {
-        serverMessage targetMessage;
-        public serverMessageRW(byte[] encodedMessage)
-        {
-            MemoryStream rawData = new MemoryStream(encodedMessage);
-            BinaryReader readingStream = new BinaryReader(rawData);
-            DataContractJsonSerializer messageReader = new DataContractJsonSerializer(typeof(serverMessage));
-            // targetMessage = (serverMessage)messageReader.ReadObject(readingStream);
-        }
-
-        byte[] EncodeMessage()
-        {
-            MemoryStream writingStream = new MemoryStream();
-            DataContractJsonSerializer messageWriter = new DataContractJsonSerializer(typeof(serverMessage));
-            // messageWriter.WriteObject(writingStream, targetMessage);
-            return writingStream.GetBuffer();
-        }
-    }
 }
