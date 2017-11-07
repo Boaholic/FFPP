@@ -7,8 +7,9 @@ namespace AppLayer
     public partial class clientPlayer
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
+                typeof(clientPlayer)
+            );
         public string playerName { get; set; }
         public static readonly ILog Logger = LogManager.GetLogger(typeof(serverMessage));
         public string A_Number { get; set; }
@@ -22,12 +23,11 @@ namespace AppLayer
         // System.Timers.TImer, db heartbeat, in score , s answer 
 
         public int Score { get; set; }
+        public messageReadWrite playerReadWrite = new messageReadWrite();
       
         public clientPlayer(serverMessage initialClientMessage)
         {
-            //extract the player name
-            //set the value of variable playerName
-            //to the input value
+            playerName = initialClientMessage.messageBody;
         }
         public bool hasJoinedGame
         {
@@ -62,10 +62,12 @@ namespace AppLayer
                 playerHasRequestedLeave = value;
             }
         }
-        // public serverMessage SendIsReady()
-        //{
-        //create an isReady message
-        //send an isReady message
-        // }
+        public serverMessage SendIsReady()
+        {
+            //create an isReady message
+            serverMessage isReadyMessage = new serverMessage(serverMessage.messageType.ACK, "");
+            //send an isReady message
+            return isReadyMessage;
+        }
     }
 }

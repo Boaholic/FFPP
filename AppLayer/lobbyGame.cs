@@ -8,8 +8,9 @@ namespace AppLayer
     public class lobbyGame
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
+                typeof(lobbyGame)
+            );
         public clientPlayer[] associatedPlayers;
         public bool isActive;
         public bool isOpen;

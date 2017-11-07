@@ -8,8 +8,7 @@ namespace AppLayer
     public class messageReadWrite
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(serverMessage));
         serverMessage targetMessage { get; set; }
         public void DecodeMessage(byte[] encodedMessage)
         {
