@@ -6,6 +6,9 @@ namespace AppLayer
 {
     public partial class clientPlayer
     {
+        //https://www.codeproject.com/Articles/140911/log-net-Tutorial
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public string playerName { get; set; }
         public static readonly ILog Logger = LogManager.GetLogger(typeof(serverMessage));
         public string A_Number { get; set; }

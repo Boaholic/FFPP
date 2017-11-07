@@ -4,7 +4,6 @@
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Json;
-
 namespace AppLayer
 {
     //construct a data contract here
@@ -12,6 +11,9 @@ namespace AppLayer
     [DataContract(Name = "serverMessage", Namespace = "serverMessage")]
     public class serverMessage : IExtensibleDataObject
     {
+        //https://www.codeproject.com/Articles/140911/log-net-Tutorial
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public enum messageType
         {
            JOIN,
@@ -28,6 +30,7 @@ namespace AppLayer
         {
             thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
+            log.Info("Input Message: " + inputMessageBody);
         }
 
         private ExtensionDataObject messageDataValue;

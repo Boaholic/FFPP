@@ -1,9 +1,12 @@
 ﻿using System;
 
 namespace AppLayer
-{ 
+{
     public class lobbyServer
     {
+        //https://www.codeproject.com/Articles/140911/log-net-Tutorial
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public clientPlayer[] totalAssociatedPlayers;
         public lobbyGame[] gamesInLobby;
         public void newLobbyPlayer(clientPlayer newPlayer)
