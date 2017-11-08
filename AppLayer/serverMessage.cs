@@ -4,8 +4,6 @@
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Json;
-
-
 namespace AppLayer
 {
     //construct a data contract here
@@ -13,29 +11,27 @@ namespace AppLayer
     [DataContract(Name = "serverMessage", Namespace = "serverMessage")]
     public class serverMessage : IExtensibleDataObject
     {
-        [DataMember(Name = "messageID")]
-        public int messageID;
-        [DataMember(Name = "conversationID")]
-        public int conversationID;
-        [DataMember(Name = "messageType")]
-        public String messageType;
+        //https://www.codeproject.com/Articles/140911/log-net-Tutorial
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
+                typeof(serverMessage)
+            );
+        public enum messageType
+        {
+           JOIN,
+           ACK,
+           HB,
+           CHAT
+        }
+        [DataMember(Name = "thisMessageType")]
+        public messageType thisMessageType;
         [DataMember(Name = "messageBody")]
         public String messageBody;
-        [DataMember(Name = "sentAs")]
-        public String sentAs;
-        [DataMember(Name = "initiator")]
-        public String initiator;
 
-
-        public serverMessage(int inputMessageID, int inputConversationID, String inputMessageType,
-                             String inputMessageBody, String inputSentAs, String inputInitiator)
+        public serverMessage( messageType inputMsgType, String inputMessageBody)
         {
-            messageID = inputMessageID;
-            conversationID = inputConversationID;
-            messageType = inputMessageType;
+            thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
-            sentAs = inputSentAs;
-            initiator = inputInitiator;
+            log.Info("Input Message: " + inputMessageBody);
         }
 
         private ExtensionDataObject messageDataValue;
@@ -49,26 +45,6 @@ namespace AppLayer
             {
                 messageDataValue = value;
             }
-        }
-    }
-
-    public class serverMessageRW
-    {
-        serverMessage targetMessage;
-        public serverMessageRW(byte[] encodedMessage)
-        {
-            MemoryStream rawData = new MemoryStream(encodedMessage);
-            BinaryReader readingStream = new BinaryReader(rawData);
-            DataContractJsonSerializer messageReader = new DataContractJsonSerializer(typeof(serverMessage));
-            // targetMessage = (serverMessage)messageReader.ReadObject(readingStream);
-        }
-
-        byte[] EncodeMessage()
-        {
-            MemoryStream writingStream = new MemoryStream();
-            DataContractJsonSerializer messageWriter = new DataContractJsonSerializer(typeof(serverMessage));
-            // messageWriter.WriteObject(writingStream, targetMessage);
-            return writingStream.GetBuffer();
         }
     }
 }
