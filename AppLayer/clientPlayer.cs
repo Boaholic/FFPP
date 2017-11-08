@@ -4,14 +4,14 @@ using System.Net.Sockets;
 
 namespace AppLayer
 {
-    public partial class clientPlayer
+    public partial class ClientPlayer
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
-                typeof(clientPlayer)
+                typeof(ClientPlayer)
             );
         public string playerName { get; set; }
-        public static readonly ILog Logger = LogManager.GetLogger(typeof(serverMessage));
+        public static readonly ILog Logger = LogManager.GetLogger(typeof(ServerMessage));
         public string A_Number { get; set; }
         public IPAddress _ServerAddress { get; set; }
         public UdpClient MyUdpClient { get; set; }
@@ -23,9 +23,9 @@ namespace AppLayer
         // System.Timers.TImer, db heartbeat, in score , s answer 
 
         public int Score { get; set; }
-        public messageReadWrite playerReadWrite = new messageReadWrite();
+        public MessageReadWrite playerReadWrite = new MessageReadWrite();
       
-        public clientPlayer(serverMessage initialClientMessage)
+        public ClientPlayer(ServerMessage initialClientMessage)
         {
             playerName = initialClientMessage.messageBody;
         }
@@ -62,10 +62,10 @@ namespace AppLayer
                 playerHasRequestedLeave = value;
             }
         }
-        public serverMessage SendIsReady()
+        public ServerMessage SendIsReady()
         {
             //create an isReady message
-            serverMessage isReadyMessage = new serverMessage(serverMessage.messageType.ACK, "");
+            ServerMessage isReadyMessage = new ServerMessage(ServerMessage.messageType.ACK, "");
             //send an isReady message
             return isReadyMessage;
         }
