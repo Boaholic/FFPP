@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace GUILayer
 {
-    public partial class clientPlayer : Form
+    public partial class Player : Form
     {
         bool valid = false;
 
-        public clientPlayer()
+        public Player()
         {
            
             InitializeComponent();

@@ -16,7 +16,7 @@ namespace GUILayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new clientPlayer());
+            Application.Run(new Player());
         }
     }
 }

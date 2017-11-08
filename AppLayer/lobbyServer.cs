@@ -8,11 +8,11 @@ namespace AppLayer
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
                 typeof(LobbyServer)
             );
-        public ClientPlayer[] totalAssociatedPlayers;
+        public Player[] totalAssociatedPlayers;
         public LobbyGame[] gamesInLobby;
-        public void newLobbyPlayer(ClientPlayer newPlayer)
+        public void newLobbyPlayer(Player newPlayer)
         {
-            foreach (ClientPlayer p in totalAssociatedPlayers)
+            foreach (Player p in totalAssociatedPlayers)
             {
                 if (newPlayer == p)
                 {

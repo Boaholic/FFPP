@@ -5,12 +5,12 @@ using System.Runtime.Serialization.Json;
 namespace AppLayer
 {
     
-    [DataContract(Name = "ServerMessage", Namespace = "ServerMessage")]
-    public class ServerMessage : IExtensibleDataObject
+    [DataContract(Name = "Message", Namespace = "Message")]
+    public class Message : IExtensibleDataObject
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
-                typeof(ServerMessage)
+                typeof(Message)
             );
         public enum messageType
         {
@@ -24,7 +24,7 @@ namespace AppLayer
         [DataMember(Name = "MessageBody")]
         public String messageBody;
 
-        public ServerMessage( messageType inputMsgType, String inputMessageBody)
+        public Message( messageType inputMsgType, String inputMessageBody)
         {
             thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
