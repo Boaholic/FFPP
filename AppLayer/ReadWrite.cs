@@ -9,7 +9,7 @@ namespace AppLayer
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Message));
-        Message targetMessage { get; set; }
+        public Message targetMessage { get; set; }
         public void DecodeMessage(byte[] encodedMessage)
         {
             MemoryStream rawData = new MemoryStream(encodedMessage);
