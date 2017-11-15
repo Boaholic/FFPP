@@ -23,7 +23,7 @@ namespace AppLayer
         // System.Timers.TImer, db heartbeat, in score , s answer 
 
         public int Score { get; set; }
-        public MessageReadWrite playerReadWrite = new MessageReadWrite();
+        public ReadWrite playerReadWrite = new ReadWrite();
       
         public Player(Message initialClientMessage)
         {

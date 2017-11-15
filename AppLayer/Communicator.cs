@@ -21,9 +21,10 @@ namespace AppLayer
         private IPEndPoint _localEndPoint;
         private UdpClient _udpClient;
 
-        private MessageQueue _queue;
+        private MessageQueue _queue = new MessageQueue();
         private AutoResetEvent _queueWaitHandle;
-
+        private ReadWrite _readWrite = new ReadWrite();
+        
         #endregion
 
         #region Constructors and Destructors
@@ -60,7 +61,7 @@ namespace AppLayer
                 _localPort = _localEndPoint.Port;
                 Log.Info("Created Communicator's UdpClient, bound to " + _localEndPoint);
 
-                // _queue = new MessageQueue();
+               // _queue = new MessageQueue();
                 _queueWaitHandle = new AutoResetEvent(false);
 
                 Log.Debug("Done initializing communicator");
@@ -134,12 +135,12 @@ namespace AppLayer
                     var ep = new IPEndPoint(IPAddress.Any, 0);
                     byte[] receiveBytes = _udpClient?.Receive(ref ep);
                     Log.Debug($"Bytes received: {FormatBytesForDisplay(receiveBytes)}");
-                    //result = ServerMessage.Create(receiveBytes);
+                    _readWrite.DecodeMessage(receiveBytes);
+                    result = _readWrite.targetMessage;
                     if (result != null)
                     {
-                        //TODO
-                        //result.SenderEndPoint = ep;
-                        Log.InfoFormat($"Received {result} from {ep}");
+                        Log.InfoFormat($"Received type: /n/t'{result.thisMessageType}' " +
+                            $"/n/t content: '{result.messageBody}' /n/t from: {result.fromAddress.Address}");
                     }
                     else
                     {
@@ -160,32 +161,28 @@ namespace AppLayer
             return result;
         }
 
-        //TODO
-        /*
-        public bool Send(ServerMessage msg, IPEndPoint targetEndPoint)
+        public bool Send(Message msg, IPEndPoint targetEndPoint)
         {
-            //TODO
-            //msg.TargetEndPoint = targetEndPoint;
-            //return Send(msg);
+            msg.fromAddress = targetEndPoint;
+            return Send(msg);
         }
 
-        //TODO
-        public bool Send(ServerMessage msg)
+        public bool Send(Message msg)
         {
             Log.Debug("Entering Send");
 
             bool result = false;
 
-            if (CommunicationsEnabled && msg?.TargetEndPoint != null)
+            if (msg.fromAddress != null) 
             {
                 try
                 {
-                    Log.Debug($"Send {msg} to {msg.TargetEndPoint}");
-                    byte[] buffer = msg.Encode();
+                    Log.Debug($"Send {msg} to {msg.fromAddress}");
+                    byte[] buffer = _readWrite.EncodeMessage( msg );
                     Log.Debug($"Bytes sent: {FormatBytesForDisplay(buffer)}");
-                    int count = _udpClient.Send(buffer, buffer.Length, msg.TargetEndPoint);
+                    int count = _udpClient.Send(buffer, buffer.Length, msg.fromAddress); //??
                     result = (count == buffer.Length);
-                    Log.Info($"Sent {msg} to {msg.TargetEndPoint}, result={result}");
+                    Log.Info($"Sent {msg.messageBody} of type '{msg.thisMessageType}' to {msg.fromAddress.Address}, result={result}");
                 }
                 catch (Exception err)
                 {
@@ -195,7 +192,7 @@ namespace AppLayer
 
             Log.Debug("Leaving Send, result = " + result);
             return result;
-        }*/
+        }
 
         public void Close()
         {
