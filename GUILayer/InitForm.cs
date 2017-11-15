@@ -46,18 +46,42 @@ namespace GUILayer
         {
             if(!valid)
             {
+                valid = true;
+                ErrorBox.Visible = false;
+                ErrorBox.Text = "";
+
                 if (NameBox.Text == "")
                 {
-
+                    ErrorBox.Visible = true;
+                    ErrorBox.Text += "Name cannot be empty\n";
+                    valid = false;
+                    
                 }
                 if (IPBox.Text == "")
                 {
-
+                    ErrorBox.Visible = true;
+                    ErrorBox.Text += "IP Address Cannot be empty\n";
+                    valid = false;
                 }
                 if (PortBox.Text == "")
                 {
-
+                    ErrorBox.Visible = true;
+                    ErrorBox.Text += "Port Cannot be empty\n";
+                    valid = false;
                 }
+                if(!ValidateIPv4(IPBox.Text))
+                {
+                    ErrorBox.Visible = true;
+                    ErrorBox.Text += "IP address is not valid\n";
+                    valid = false;
+                }
+            }
+            else
+            {
+
+                Lobby _Lobby = new Lobby();
+                _Lobby.Show();
+
             }
           
 

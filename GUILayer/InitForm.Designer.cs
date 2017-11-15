@@ -150,10 +150,13 @@ namespace GUILayer
             // 
             // ErrorBox
             // 
-            this.ErrorBox.Location = new System.Drawing.Point(765, 225);
+            this.ErrorBox.Location = new System.Drawing.Point(712, 370);
+            this.ErrorBox.Multiline = true;
             this.ErrorBox.Name = "ErrorBox";
-            this.ErrorBox.Size = new System.Drawing.Size(100, 22);
+            this.ErrorBox.ReadOnly = true;
+            this.ErrorBox.Size = new System.Drawing.Size(181, 124);
             this.ErrorBox.TabIndex = 9;
+            this.ErrorBox.Visible = false;
             // 
             // Player
             // 
