@@ -16,6 +16,8 @@ namespace AppLayer
         public IPAddress _ServerAddress { get; set; }
         public UdpClient MyUdpClient { get; set; }
 
+        public Communicator communicator = new Communicator();
+
         public IPEndPoint myEndPoint;
         public IPEndPoint _ServerEndPoint;
         public static System.Timers.Timer Controller;
@@ -23,7 +25,7 @@ namespace AppLayer
         // System.Timers.TImer, db heartbeat, in score , s answer 
 
         public int Score { get; set; }
-        public MessageReadWrite playerReadWrite = new MessageReadWrite();
+        public ReadWrite playerReadWrite = new ReadWrite();
       
         public Player(Message initialClientMessage)
         {
@@ -65,7 +67,7 @@ namespace AppLayer
         public Message SendIsReady()
         {
             //create an isReady message
-            Message isReadyMessage = new Message(Message.messageType.ACK, "");
+            Message isReadyMessage = new Message(MessageType.ACK, "");
             //send an isReady message
             return isReadyMessage;
         }

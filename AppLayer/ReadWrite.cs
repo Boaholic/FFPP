@@ -5,7 +5,7 @@ using System.Text;
 namespace AppLayer
 {
 
-    public class MessageReadWrite
+    public class ReadWrite
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Message));

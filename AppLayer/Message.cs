@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;      
 using System.IO;
 using System.Runtime.Serialization.Json;
+using System.Net;
 namespace AppLayer
 {
     
@@ -12,19 +13,15 @@ namespace AppLayer
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
                 typeof(Message)
             );
-        public enum messageType
-        {
-           JOIN,
-           ACK,
-           HB,
-           CHAT
-        }
+
         [DataMember(Name = "thisMessageType")]
-        public messageType thisMessageType;
+        public MessageType thisMessageType;
         [DataMember(Name = "MessageBody")]
         public String messageBody;
+        [DataMember(Name = "fromAddress")]
+        public IPEndPoint fromAddress;
 
-        public Message( messageType inputMsgType, String inputMessageBody)
+        public Message( MessageType inputMsgType, String inputMessageBody)
         {
             thisMessageType = inputMsgType;
             messageBody = inputMessageBody;
