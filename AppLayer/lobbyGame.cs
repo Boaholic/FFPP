@@ -5,24 +5,24 @@ using System.Text;
 namespace AppLayer
 {
     
-    public class lobbyGame
+    public class LobbyGame
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
-                typeof(lobbyGame)
+                typeof(LobbyGame)
             );
-        public clientPlayer[] associatedPlayers;
+        public Player[] associatedPlayers;
         public bool isActive;
         public bool isOpen;
-        public lobbyGame()
+        public LobbyGame()
         {
             associatedPlayers = null;
             isActive = false;
             isOpen = true;
         }
-        public void playerJoinGame(clientPlayer newPlayer)
+        public void playerJoinGame(Player newPlayer)
         {
-            foreach (clientPlayer p in associatedPlayers)
+            foreach (Player p in associatedPlayers)
             {
                 if (newPlayer == p)
                 {
