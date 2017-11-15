@@ -1,15 +1,17 @@
+﻿using System;
+using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Json;
-
+using log4net;
+using System.Text;
 
 namespace AppLayer
 {
-
-    public class MessageReadWrite
+    public class ReadWrite
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Message));
-        Message targetMessage { get; set; }
+        public Message targetMessage { get; set; }
         public void DecodeMessage(byte[] encodedMessage)
         {
             MemoryStream rawData = new MemoryStream(encodedMessage);
@@ -27,7 +29,11 @@ namespace AppLayer
             log.Info("Message before encoding: " + targetMessage.ToString());
             messageWriter.WriteObject(writingStream, targetMessage);
             log.Info("Message after encoding: " + writingStream.GetBuffer());
-            return writingStream.GetBuffer();
+            //http://www.advancesharp.com/blog/1086/convert-object-to-json-and-json-to-object-in-c
+            //https://connect.microsoft.com/VisualStudio/feedback/details/356750/datacontractjsonserializer-fails-with-non-ansi-characters
+            string messageJSON = Encoding.UTF8.GetString(writingStream.ToArray());
+            log.Info("Message after encoding: " + messageJSON);
+            return Encoding.UTF8.GetBytes(messageJSON);
         }
 
         public byte[] EncodeMessage(Message inputMessage)
@@ -38,7 +44,9 @@ namespace AppLayer
             MemoryStream writingStream = new MemoryStream();
             messageWriter.WriteObject(writingStream, inputMessage);
             log.Info("Message after encoding: " + writingStream.GetBuffer());
-            return writingStream.GetBuffer();
+            string messageJSON = Encoding.UTF8.GetString(writingStream.ToArray());
+            log.Info("Message after encoding: " + messageJSON);
+            return Encoding.UTF8.GetBytes(messageJSON);
         }
     }
 }
