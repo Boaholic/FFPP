@@ -16,6 +16,8 @@ namespace AppLayer
         public IPAddress _ServerAddress { get; set; }
         public UdpClient MyUdpClient { get; set; }
 
+        public Communicator communicator = new Communicator();
+
         public IPEndPoint myEndPoint;
         public IPEndPoint _ServerEndPoint;
         public static System.Timers.Timer Controller;
@@ -65,7 +67,7 @@ namespace AppLayer
         public Message SendIsReady()
         {
             //create an isReady message
-            Message isReadyMessage = new Message(Message.messageType.ACK, "");
+            Message isReadyMessage = new Message(MessageType.ACK, "");
             //send an isReady message
             return isReadyMessage;
         }

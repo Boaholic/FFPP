@@ -10,10 +10,10 @@ namespace TestMessageCoding
         [TestMethod]
         public void TestingEncodingDecoding()
         {
-            ReadWrite _ReadWrite = new ReadWrite();
-            Message TestMessage = new Message(Message.messageType.JOIN, "PlayerName");
-            byte[] EncodedMessage = _ReadWrite.EncodeMessage(TestMessage);
-            _ReadWrite.DecodeMessage(EncodedMessage);
+            ReadWrite _messageReadWrite = new ReadWrite();
+            Message TestMessage = new Message(MessageType.JOIN, "PlayerName");
+            byte[] EncodedMessage = _messageReadWrite.EncodeMessage(TestMessage);
+            _messageReadWrite.DecodeMessage(EncodedMessage);
 
             Assert.AreEqual(TestMessage.thisMessageType, _ReadWrite.targetMessage.thisMessageType);
             Assert.AreEqual(TestMessage.messageBody, _ReadWrite.targetMessage.messageBody);
