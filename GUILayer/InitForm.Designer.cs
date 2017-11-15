@@ -2,7 +2,7 @@
 
 namespace GUILayer
 {
-    partial class clientPlayer
+    partial class Player
     {
         /// <summary>
         /// Required designer variable.
@@ -155,7 +155,7 @@ namespace GUILayer
             this.ErrorBox.Size = new System.Drawing.Size(100, 22);
             this.ErrorBox.TabIndex = 9;
             // 
-            // clientPlayer
+            // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,7 +175,7 @@ namespace GUILayer
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "clientPlayer";
+            this.Name = "Player";
             this.Text = "Floaty-Floaty-Pew-Pew:  Boaty McBoatface\'s revenge:  IN SPACE!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
