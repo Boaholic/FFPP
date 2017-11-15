@@ -15,8 +15,8 @@ namespace TestMessageCoding
             byte[] EncodedMessage = _messageReadWrite.EncodeMessage(TestMessage);
             _messageReadWrite.DecodeMessage(EncodedMessage);
 
-            Assert.AreEqual(TestMessage.thisMessageType, _messageReadWrite.targetMessage.thisMessageType);
-            Assert.AreEqual(TestMessage.messageBody, _messageReadWrite.targetMessage.messageBody);
+            Assert.AreEqual(TestMessage.thisMessageType, _ReadWrite.targetMessage.thisMessageType);
+            Assert.AreEqual(TestMessage.messageBody, _ReadWrite.targetMessage.messageBody);
         }
     }
 }

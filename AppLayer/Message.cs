@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Runtime.Serialization;      
+using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Net;
 namespace AppLayer
 {
-    
-    [DataContract(Name = "Message", Namespace = "Message")]
+    [DataContract(Name = "serverMessage", Namespace = "serverMessage")]
     public class Message : IExtensibleDataObject
     {
         //https://www.codeproject.com/Articles/140911/log-net-Tutorial
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
                 typeof(Message)
+
             );
+
 
         [DataMember(Name = "thisMessageType")]
         public MessageType thisMessageType;

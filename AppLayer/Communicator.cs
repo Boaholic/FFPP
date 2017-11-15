@@ -29,7 +29,7 @@ namespace AppLayer
 
         private Thread _dataProcessor;
         private Thread _sender;
-
+      
         #endregion
 
         #region Constructors and Destructors
@@ -65,8 +65,6 @@ namespace AppLayer
             {
                 _localPort = _localEndPoint.Port;
                 Log.Info("Created Communicator's UdpClient, bound to " + _localEndPoint);
-
-
                 Log.Debug("Done initializing communicator");
             }
             _processor._incomingMessages = _incomingQueue;
@@ -124,7 +122,7 @@ namespace AppLayer
                 // Asyncronously listen for new messages
 
                 _udpClient.BeginReceive(new AsyncCallback(Receive), null);
-
+              
             }
             catch (SocketException err)
             {
@@ -169,7 +167,7 @@ namespace AppLayer
             while (keepSending)
             {
                 Message _msg = Dequeue(_outgoingQueue);
-                if (_msg != null)
+                if (_msg != null && _msg.fromAddress != null)
                 {
                     Log.Debug("Entering Send");
 
@@ -200,7 +198,6 @@ namespace AppLayer
                 }
 
             }
-
         }
 
         public void Close()
