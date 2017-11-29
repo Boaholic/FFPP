@@ -1,6 +1,7 @@
 ﻿using System;
 using AppLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FFPPCommunication;
 
 namespace TestMessageCoding
 {
