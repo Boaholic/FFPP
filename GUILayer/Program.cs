@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FFPPCommunication;
 
 namespace GUILayer
 {
@@ -16,7 +17,7 @@ namespace GUILayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Player());
+            Application.Run();
         }
     }
 }
