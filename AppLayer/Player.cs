@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System.Net;
 using System.Net.Sockets;
+using FFPPCommunication;
 
 namespace AppLayer
 {
@@ -15,6 +16,8 @@ namespace AppLayer
         public string A_Number { get; set; }
         public IPAddress _ServerAddress { get; set; }
         public UdpClient MyUdpClient { get; set; }
+
+        public Communicator communicator = new Communicator();
 
         public IPEndPoint myEndPoint;
         public IPEndPoint _ServerEndPoint;
@@ -65,7 +68,7 @@ namespace AppLayer
         public Message SendIsReady()
         {
             //create an isReady message
-            Message isReadyMessage = new Message(Message.messageType.ACK, "");
+            Message isReadyMessage = new Message(MessageType.ACK, "");
             //send an isReady message
             return isReadyMessage;
         }
