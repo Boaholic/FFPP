@@ -41,7 +41,7 @@
             // ChatWindow
             // 
             this.ChatWindow.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ChatWindow.Location = new System.Drawing.Point(28, 27);
+            this.ChatWindow.Location = new System.Drawing.Point(28, 24);
             this.ChatWindow.Multiline = true;
             this.ChatWindow.Name = "ChatWindow";
             this.ChatWindow.ReadOnly = true;
@@ -116,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1353, 755);
+            this.ClientSize = new System.Drawing.Size(1271, 767);
             this.Controls.Add(this.LogLabel);
             this.Controls.Add(this.ServerLog);
             this.Controls.Add(this.JoinButton);

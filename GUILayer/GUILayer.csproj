@@ -52,26 +52,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InitForm.Designer.cs">
-      <DependentUpon>InitForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="GamePlayer.cs" />
+    <Compile Include="GlobalState.cs" />
+    <Compile Include="Graphics.cs" />
     <Compile Include="Lobby.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Lobby.Designer.cs">
       <DependentUpon>Lobby.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGameForm.Designer.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs" />
+    <Compile Include="NameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NameForm.Designer.cs" />
+    <Compile Include="PlaceShips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaceShips.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="InitForm.resx">
-      <DependentUpon>InitForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Sound.cs" />
     <EmbeddedResource Include="Lobby.resx">
       <DependentUpon>Lobby.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainGameForm.resx" />
+    <EmbeddedResource Include="MainMenu.resx" />
+    <EmbeddedResource Include="NameForm.resx" />
+    <EmbeddedResource Include="PlaceShips.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -104,6 +120,37 @@
       <Project>{c7abded4-53b0-49cd-a8b2-0c6153eaa964}</Project>
       <Name>AppLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splashImage.png" />
+    <None Include="Resources\splash2Sound.wav" />
+    <None Include="Resources\splash1Sound.wav" />
+    <None Include="Resources\splash0Sound.wav" />
+    <None Include="Resources\shot2Sound.wav" />
+    <None Include="Resources\shot1Sound.wav" />
+    <None Include="Resources\shot0Sound.wav" />
+    <None Include="Resources\ship4Image.png" />
+    <None Include="Resources\ship3Image.png" />
+    <None Include="Resources\ship2Image.png" />
+    <None Include="Resources\ship1Image.png" />
+    <None Include="Resources\ship0Image.png" />
+    <None Include="Resources\rotateImage.png" />
+    <None Include="Resources\okImage.png" />
+    <None Include="Resources\menuSound.wav" />
+    <None Include="Resources\menuImage.jpg" />
+    <None Include="Resources\hitImage.png" />
+    <None Include="Resources\hit2Sound.wav" />
+    <None Include="Resources\hit1Sound.wav" />
+    <None Include="Resources\hit0Sound.wav" />
+    <None Include="Resources\drumSound.wav" />
+    <None Include="Resources\deck3Image.jpg" />
+    <None Include="Resources\deck2Image.jpg" />
+    <None Include="Resources\deck1Image.jpg" />
+    <None Include="Resources\deck0Image.jpg" />
+    <None Include="Resources\cancelImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\victorySound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
