@@ -68,7 +68,7 @@ namespace AppLayer
         public Message SendIsReady()
         {
             //create an isReady message
-            Message isReadyMessage = new Message(MessageType.ACK, "");
+            Message isReadyMessage = new Message(Message.messageType.ACK, "");
             //send an isReady message
             return isReadyMessage;
         }
