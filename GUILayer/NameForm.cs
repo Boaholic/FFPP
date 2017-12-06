@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public partial class SingleplayerSettingsForm : Form
     {

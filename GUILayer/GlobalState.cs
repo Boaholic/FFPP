@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public static class GlobalState
     {

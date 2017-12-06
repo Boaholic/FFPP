@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public partial class MainMenuForm : Form
     {
@@ -25,8 +25,8 @@ namespace GUILayer
             Game.Initialize();
 
             // Initialize players.
-            Game.player1 = new GamePlayer();
-            Game.player2 = new GamePlayer();
+            Game.player1 = new Player();
+            Game.player2 = new Player();
 
             // Temporarily hide MainMenuForm and store its pointer.
             SingleplayerSettingsForm singleplayerSettingsForm = new SingleplayerSettingsForm();

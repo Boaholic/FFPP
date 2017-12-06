@@ -2,15 +2,15 @@
 using System.Threading;
 using System.Windows.Forms;
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public partial class MainGameForm : Form
     {
         int mouseCellX;
         int mouseCellY;
 
-        GamePlayer yourPlayer;
-        GamePlayer opponentPlayer;
+        Player yourPlayer;
+        Player opponentPlayer;
 
         public MainGameForm()
         {
@@ -54,23 +54,6 @@ namespace GUILayer
             }
 
             RedrawStatistics();
-        }
-        private bool ValidateIPv4(string ipString)
-        {
-            if (String.IsNullOrWhiteSpace(ipString))
-            {
-                return false;
-            }
-
-            string[] splitValues = ipString.Split('.');
-            if (splitValues.Length != 4)
-            {
-                return false;
-            }
-
-            byte tempForParsing;
-
-            //return splitValues.All(r => byte.TryParse(r, out tempForParsing));
         }
 
         private void RedrawStatistics() 

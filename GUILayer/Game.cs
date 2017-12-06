@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     //This class contains all the necessary Logic for the game
     public static class Game
@@ -24,8 +24,8 @@ namespace GUILayer
         // true == player-one's move/ false == player-two's move.
         public static bool playerSwitch;
         public static int roundCount;
-        public static GamePlayer player1;
-        public static GamePlayer player2;
+        public static Player player1;
+        public static Player player2;
 
        
         static public void Initialize()
@@ -99,7 +99,7 @@ namespace GUILayer
 
         //Returns whether a cell can contain a ship. For AI
         
-        static public bool CanPlaceShipAI(int currentShip, int cellX, int cellY, bool isHorizontal, GamePlayer player)
+        static public bool CanPlaceShipAI(int currentShip, int cellX, int cellY, bool isHorizontal, Player player)
         {
             // Is the index of the most upper-left cell within the bounds.
             if (cellX < 0 || cellY < 0)
@@ -291,7 +291,7 @@ namespace GUILayer
         }
 
         // AI method for choosing a cell to hit.
-        static public int[] AIChooseCellToHit(GamePlayer player)
+        static public int[] AIChooseCellToHit(Player player)
         {
             // Prepared array of ship cell probabilities
             int[,] probabilitySet = new int[10, 10];
@@ -420,11 +420,11 @@ namespace GUILayer
 
         // Perform an attack of a player on a player at a given cell.
         // [true] if game is over and the attacker won / [false] if not.
-        static public bool Attack(int cellX, int cellY, GamePlayer attacker, GamePlayer attacked)
+        static public bool Attack(int cellX, int cellY, Player attacker, Player attacked)
         {
-            string attackerLogNote = "--> " + String.Format("{0:000}", roundCount) + ".round:" + attacker.Name + ", Firing "
+            string attackerLogNote = "--> " + "Round: " + String.Format("{0:000}", roundCount)  + attacker.Name + ", Firing on "
                 + attacked.Name + " at [ " + letterLabels[cellX] + "," + numberLables[cellY] + " ]. ";
-            string attackedLogNote = "<-- " + String.Format("{0:000}", roundCount) + ".round:  You, have been fired upon by: " + attacker.Name + 
+            string attackedLogNote = "<-- " + "Round:" + String.Format("{0:000}", roundCount) +  "  You, have been fired upon by: " + attacker.Name + 
                 " at [ " + letterLabels[cellX] + "," + numberLables[cellY] + " ]. ";
 
             // Play a shot sound and wait a second for dramatic effect.

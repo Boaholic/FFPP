@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public partial class PlaceShips : Form
     {
@@ -19,7 +19,7 @@ namespace GUILayer
         bool[] shipDeployed = new bool[5];
 
         // Changable player.
-        GamePlayer player;
+        Player player;
 
         public PlaceShips()
         {

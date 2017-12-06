@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUILayer.Properties {
+namespace FloatyFloatyPewPew.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace GUILayer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GUILayer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FloatyFloatyPewPew.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -181,16 +181,6 @@ namespace GUILayer.Properties {
         internal static System.Drawing.Bitmap okImage {
             get {
                 object obj = ResourceManager.GetObject("okImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OpenScreen {
-            get {
-                object obj = ResourceManager.GetObject("OpenScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

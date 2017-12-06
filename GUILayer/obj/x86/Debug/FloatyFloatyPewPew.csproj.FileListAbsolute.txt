@@ -1,0 +1,12 @@
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatPewPew.MainGameForm.resources
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatPewPew.PlaceShips.resources
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatPewPew.MainMenuForm.resources
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatyPewPew.Properties.Resources.resources
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatPewPew.SingleplayerSettingsForm.resources
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatyPewPew.csproj.GenerateResource.Cache
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatyPewPew.csproj.CoreCompileInputs.cache
+C:\Users\boaho\Source\Repos\battleships2\Battleships\bin\Debug\FloatyFloatyPewPew.exe
+C:\Users\boaho\Source\Repos\battleships2\Battleships\bin\Debug\FloatyFloatyPewPew.pdb
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatyPewPew.csprojResolveAssemblyReference.cache
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatyPewPew.exe
+C:\Users\boaho\Source\Repos\battleships2\Battleships\obj\x86\Debug\FloatyFloatyPewPew.pdb

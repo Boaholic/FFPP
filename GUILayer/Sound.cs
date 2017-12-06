@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Media;
 using System.Threading;
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public static class Sound
     {

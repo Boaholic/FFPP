@@ -122,6 +122,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\icon.ico" />
+    <None Include="Resources\victorySound.wav" />
     <None Include="Resources\splashImage.png" />
     <None Include="Resources\splash2Sound.wav" />
     <None Include="Resources\splash1Sound.wav" />
@@ -138,6 +140,7 @@
     <None Include="Resources\okImage.png" />
     <None Include="Resources\menuSound.wav" />
     <None Include="Resources\menuImage.jpg" />
+    <None Include="Resources\icon.ico" />
     <None Include="Resources\hitImage.png" />
     <None Include="Resources\hit2Sound.wav" />
     <None Include="Resources\hit1Sound.wav" />
@@ -148,9 +151,6 @@
     <None Include="Resources\deck1Image.jpg" />
     <None Include="Resources\deck0Image.jpg" />
     <None Include="Resources\cancelImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\victorySound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

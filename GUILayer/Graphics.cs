@@ -2,20 +2,20 @@
 using System.Drawing;
 
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
     public static class Graphics
     {
-        static private readonly Bitmap hitImage = new Bitmap(GUILayer.Properties.Resources.hitImage);
-        static private readonly Bitmap splashImage = new Bitmap(GUILayer.Properties.Resources.splashImage);
+        static private readonly Bitmap hitImage = new Bitmap(FloatyFloatyPewPew.Properties.Resources.hitImage);
+        static private readonly Bitmap splashImage = new Bitmap(FloatyFloatyPewPew.Properties.Resources.splashImage);
         static public readonly Bitmap[] deckImages = new Bitmap[4];
 
         static Graphics()
         {
-            deckImages[0] = new Bitmap(GUILayer.Properties.Resources.deck0Image);
-            deckImages[1] = new Bitmap(GUILayer.Properties.Resources.deck1Image);
-            deckImages[2] = new Bitmap(GUILayer.Properties.Resources.deck2Image);
-            deckImages[3] = new Bitmap(GUILayer.Properties.Resources.deck3Image);
+            deckImages[0] = new Bitmap(FloatyFloatyPewPew.Properties.Resources.deck0Image);
+            deckImages[1] = new Bitmap(FloatyFloatyPewPew.Properties.Resources.deck1Image);
+            deckImages[2] = new Bitmap(FloatyFloatyPewPew.Properties.Resources.deck2Image);
+            deckImages[3] = new Bitmap(FloatyFloatyPewPew.Properties.Resources.deck3Image);
         }
 
         // Opacity settings.

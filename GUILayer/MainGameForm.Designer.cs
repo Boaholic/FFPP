@@ -1,4 +1,4 @@
-﻿namespace GUILayer
+﻿namespace FloatyFloatPewPew
 {
     partial class MainGameForm
     {
