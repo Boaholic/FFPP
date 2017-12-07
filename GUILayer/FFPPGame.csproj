@@ -52,8 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sound.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="LobbyConnectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LobbyConnectionForm.Designer.cs">
+      <DependentUpon>LobbyConnectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sound.cs" />
+    <Compile Include="SinglePlayer.cs" />
     <Compile Include="GlobalState.cs" />
     <Compile Include="Graphics.cs" />
     <Compile Include="MainGameForm.cs">
@@ -88,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LobbyConnectionForm.resx">
+      <DependentUpon>LobbyConnectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainGameForm.resx">
       <DependentUpon>MainGameForm.cs</DependentUpon>
     </EmbeddedResource>

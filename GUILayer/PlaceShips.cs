@@ -34,15 +34,15 @@ namespace FloatyFloatPewPew
             shipRotation = true;
 
             // Set the title text for better player orientation.
-            if (Game.playerSwitch)
+            if (SinglePlayer.Instance.playerSwitch)
             {
-                Text = "Battleships: " + Game.player1.Name + "’s deployment";
-                player = Game.player1;
+                Text = "Battleships: " + SinglePlayer.Instance.player1.Name + "’s deployment";
+                player = SinglePlayer.Instance.player1;
             }
             else
             {
-                Text = "Battleships: " + Game.player2.Name + "’s deployment";
-                player = Game.player2;
+                Text = "Battleships: " + SinglePlayer.Instance.player2.Name + "’s deployment";
+                player = SinglePlayer.Instance.player2;
             }
             
         }
@@ -69,7 +69,7 @@ namespace FloatyFloatPewPew
                         if (shipRotation)
                         {
                             // Deploy current ship with its color into the deck.
-                            for (int i = 0; i < Game.shipLengths[currentShip]; i++)
+                            for (int i = 0; i < SinglePlayer.Instance.shipLengths[currentShip]; i++)
                             {
                                 // Do not cross the boundaries.
                                 if (mouseCellX + i <= 9)
@@ -85,7 +85,7 @@ namespace FloatyFloatPewPew
                         else
                         {
                             // Vertical rotation is on.
-                            for (int i = 0; i < Game.shipLengths[currentShip]; i++)
+                            for (int i = 0; i < SinglePlayer.Instance.shipLengths[currentShip]; i++)
                             {
                                 if (mouseCellY + i <= 9)
                                 {
@@ -119,7 +119,7 @@ namespace FloatyFloatPewPew
         {
             if (currentShip != -1 && mouseCellX != -1 && mouseCellY != -1)
             {
-                if (Game.CanPlaceShip(currentShip, mouseCellX, mouseCellY, shipRotation, player.ShipSet))
+                if (SinglePlayer.Instance.CanPlaceShip(currentShip, mouseCellX, mouseCellY, shipRotation, player.ShipSet))
                 {
                     // Allow rotation via the button.
                     shipRotateButton.Enabled = false;
@@ -162,7 +162,7 @@ namespace FloatyFloatPewPew
                     }
 
                     // Deploy the current ship into the ship set.
-                    Game.DeployShip(currentShip, mouseCellX, mouseCellY, shipRotation, player.ShipSet);
+                    SinglePlayer.Instance.DeployShip(currentShip, mouseCellX, mouseCellY, shipRotation, player.ShipSet);
 
                     // Redraw the deck.
                     deckPictureBox.Refresh();
@@ -225,7 +225,7 @@ namespace FloatyFloatPewPew
         private void DeleteShip0ButtonClick(object sender, EventArgs e)
         {
             // Delete the given ship from the deck.
-            Game.DeleteShip(0, player.ShipSet);
+            SinglePlayer.Instance.DeleteShip(0, player.ShipSet);
             // Redraw the deck.
             deckPictureBox.Refresh();
             deployShip0Button.Enabled = true;
@@ -235,7 +235,7 @@ namespace FloatyFloatPewPew
 
         private void DeleteShip1ButtonClick(object sender, EventArgs e)
         {
-            Game.DeleteShip(1, player.ShipSet);
+            SinglePlayer.Instance.DeleteShip(1, player.ShipSet);
             deckPictureBox.Refresh();
             deployShip1Button.Enabled = true;
             deleteShip1Button.Enabled = false;
@@ -244,7 +244,7 @@ namespace FloatyFloatPewPew
 
         private void DeleteShip2ButtonClick(object sender, EventArgs e)
         {
-            Game.DeleteShip(2, player.ShipSet);
+            SinglePlayer.Instance.DeleteShip(2, player.ShipSet);
             deckPictureBox.Refresh();
             deployShip2Button.Enabled = true;
             deleteShip2Button.Enabled = false;
@@ -253,7 +253,7 @@ namespace FloatyFloatPewPew
 
         private void DeleteShip3ButtonClick(object sender, EventArgs e)
         {
-            Game.DeleteShip(3, player.ShipSet);
+            SinglePlayer.Instance.DeleteShip(3, player.ShipSet);
             deckPictureBox.Refresh();
             deployShip3Button.Enabled = true;
             deleteShip3Button.Enabled = false;
@@ -262,7 +262,7 @@ namespace FloatyFloatPewPew
 
         private void DeleteShip4ButtonClick(object sender, EventArgs e)
         {
-            Game.DeleteShip(4, player.ShipSet);
+            SinglePlayer.Instance.DeleteShip(4, player.ShipSet);
             deckPictureBox.Refresh();
             deployShip4Button.Enabled = true;
             deleteShip4Button.Enabled = false;
@@ -276,9 +276,9 @@ namespace FloatyFloatPewPew
 
         private void DoneButtonClick(object sender, EventArgs e)
         {
-            if (Game.gameMode)
+            if (SinglePlayer.Instance.gameMode)
             {
-                Game.AIDeployShips();
+                SinglePlayer.Instance.AIDeployShips();
                 MainGameForm mainGame = new MainGameForm();
                 mainGame.Location = Location;
                 mainGame.Show();

@@ -21,12 +21,9 @@ namespace FloatyFloatPewPew
         private void SingleplayerButtonClick(object sender, EventArgs e)
         {
             // Set game to a Singleplayer.
-            Game.gameMode = true;
-            Game.Initialize();
-
             // Initialize players.
-            Game.player1 = new Player();
-            Game.player2 = new Player();
+            SinglePlayer.Instance.player1 = new Player();
+            SinglePlayer.Instance.player2 = new Player();
 
             // Temporarily hide MainMenuForm and store its pointer.
             SingleplayerSettingsForm singleplayerSettingsForm = new SingleplayerSettingsForm();
@@ -39,10 +36,11 @@ namespace FloatyFloatPewPew
         private void MultiplayerButtonClick(object sender, EventArgs e)
         {
             
-            Game.gameMode = false;
-            Game.Initialize();
+            //set game to mulitplayer
 
-           
+            //show connect form
+
+            
 
             
         }

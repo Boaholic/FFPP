@@ -32,23 +32,23 @@ namespace FloatyFloatPewPew
             PlayerFleetBox.Image = Graphics.deckImages[deck2Number];
 
             // Set the title of the form for better player orientation.
-            if (Game.playerSwitch)
+            if (SinglePlayer.Instance.playerSwitch)
             {
-                Text = "Battleships: " + Game.player1.Name + "’s turn";
-                yourPlayer = Game.player1;
-                opponentPlayer = Game.player2;
+                Text = "Battleships: " + SinglePlayer.Instance.player1.Name + "’s turn";
+                yourPlayer = SinglePlayer.Instance.player1;
+                opponentPlayer = SinglePlayer.Instance.player2;
             }
             else
             {
-                Text = "Battleships: " + Game.player2.Name + "’s turn";
-                yourPlayer = Game.player2;
-                opponentPlayer = Game.player1;
+                Text = "Battleships: " + SinglePlayer.Instance.player2.Name + "’s turn";
+                yourPlayer = SinglePlayer.Instance.player2;
+                opponentPlayer = SinglePlayer.Instance.player1;
             }
 
             mouseCellX = -1;
             mouseCellY = -1;
 
-            if (Game.roundCount == 1)
+            if (SinglePlayer.Instance.roundCount == 1)
             {
                 //Sound.drumSoundPlayer.Play();
             }
@@ -58,7 +58,7 @@ namespace FloatyFloatPewPew
 
         private void RedrawStatistics() 
         {
-            roundTextBox.Text = Game.roundCount.ToString();
+            roundTextBox.Text = SinglePlayer.Instance.roundCount.ToString();
             roundTextBox.Refresh();
 
             battleLogRichTextBox.Text = yourPlayer.BattleLog;
@@ -105,7 +105,7 @@ namespace FloatyFloatPewPew
             if (mouseCellX != -1 && mouseCellY != -1 && !opponentPlayer.RevealedCells[mouseCellX, mouseCellY])
             {
                 // Is the game over?
-                if (Game.Attack(mouseCellX, mouseCellY, yourPlayer, opponentPlayer))
+                if (SinglePlayer.Instance.Attack(mouseCellX, mouseCellY, yourPlayer, opponentPlayer))
                 {
                     // End of game, actual player wins redraw final state.
                     TargetFleetBox.Refresh();
@@ -120,7 +120,7 @@ namespace FloatyFloatPewPew
                     Sound.vicotrySoundPlayer.Play();
 
                     // Show the informational message box.
-                    MessageBox.Show("Congratulations " + yourPlayer.Name + "! You have won against " + opponentPlayer.Name + " in " + Game.roundCount + " rounds!", "Battleships: Game Over!");
+                    MessageBox.Show("Congratulations " + yourPlayer.Name + "! You have won against " + opponentPlayer.Name + " in " + SinglePlayer.Instance.roundCount + " rounds!", "Battleships: Game Over!");
 
                     // Dispose the form and return to the main menu.
                     Dispose();
@@ -147,10 +147,10 @@ namespace FloatyFloatPewPew
                     Thread.Sleep(4000);
 
                     // Is the game a singleplayer?
-                    if (Game.gameMode)
+                    if (SinglePlayer.Instance.gameMode)
                     {
-                        int[] aiMove = Game.AIChooseCellToHit(yourPlayer);
-                        if (Game.Attack(aiMove[0], aiMove[1], opponentPlayer, yourPlayer))
+                        int[] aiMove = SinglePlayer.Instance.AIChooseCellToHit(yourPlayer);
+                        if (SinglePlayer.Instance.Attack(aiMove[0], aiMove[1], opponentPlayer, yourPlayer))
                         {
                             // End of game, the computer has won.
                             // Scroll the battle log to the end.
@@ -175,7 +175,7 @@ namespace FloatyFloatPewPew
                             Sound.menuSoundPlayer.PlayLooping();
 
                             // Show the informational message box.
-                            MessageBox.Show("You were beaten, " + yourPlayer.Name + "! You have lost against " + opponentPlayer.Name + " in " + Game.roundCount + " rounds!", "Battleships: Game Over!");
+                            MessageBox.Show("You were beaten, " + yourPlayer.Name + "! You have lost against " + opponentPlayer.Name + " in " + SinglePlayer.Instance.roundCount + " rounds!", "Battleships: Game Over!");
 
                             // Dispose the form and return to the main menu.
                             Dispose();
@@ -187,7 +187,7 @@ namespace FloatyFloatPewPew
                         {
                             // Computer has not won yet.
                             // Increase the round count.
-                            Game.roundCount++;
+                            SinglePlayer.Instance.roundCount++;
 
                             // Scroll the battle log to the end.
                             battleLogRichTextBox.ScrollToCaret();
