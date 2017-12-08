@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Communicator.cs" />
+    <Compile Remove="Message.cs" />
+    <Compile Remove="MessageQueue.cs" />
+    <Compile Remove="ReadWrite.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FFPPCommunication">
+      <HintPath>..\FFPPCommunication.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

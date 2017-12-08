@@ -118,7 +118,85 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="OpenScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpenScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deck0Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deck0Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deck1Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deck1Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deck2Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deck2Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deck3Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deck3Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="drumSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drumSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hit0Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hit0Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hit1Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hit1Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hit2Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hit2Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hitImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hitImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menuImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menuImage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menuSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menuSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="okImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\okImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rotateImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rotateImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship0Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship0Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship1Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship1Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship2Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship2Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship3Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship3Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship4Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship4Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shot0Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shot0Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shot1Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shot1Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="shot2Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shot2Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splash0Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash0Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splash1Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash1Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splash2Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash2Sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splashImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="victorySound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\victorySound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

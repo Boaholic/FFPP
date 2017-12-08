@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FFPPCommunication;
+using System.Drawing;
+using System.Media;
+using System.Threading;
 
-namespace GUILayer
+namespace FloatyFloatPewPew
 {
+    
     static class Program
     {
         /// <summary>
@@ -17,7 +18,14 @@ namespace GUILayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            
+            // Start to play the main menu sound in loop.
+            Sound.menuSoundPlayer.PlayLooping();
+
+            // Initialize the main menu and run the application.
+            MainMenuForm mainMenuForm = new MainMenuForm();
+            GlobalState.MainMenuForm = mainMenuForm;
+            Application.Run(mainMenuForm);
         }
     }
 }

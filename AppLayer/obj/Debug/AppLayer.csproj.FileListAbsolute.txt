@@ -1,0 +1,13 @@
+C:\Users\boaho\source\repos\FFPPGame\AppLayer\obj\Debug\AppLayer.csprojResolveAssemblyReference.cache
+C:\Users\boaho\source\repos\FFPPGame\AppLayer\obj\Debug\AppLayer.csproj.CoreCompileInputs.cache
+C:\Users\boaho\source\repos\FFPP\AppLayer\obj\Debug\AppLayer.csprojResolveAssemblyReference.cache
+C:\Users\boaho\source\repos\FFPP\AppLayer\obj\Debug\AppLayer.csproj.CoreCompileInputs.cache
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\AppLayer.dll.config
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\AppLayer.dll
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\AppLayer.pdb
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\FFPPCommunication.dll
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\log4net.dll
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\FFPPCommunication.dll.config
+C:\Users\boaho\source\repos\FFPP\AppLayer\bin\Debug\log4net.xml
+C:\Users\boaho\source\repos\FFPP\AppLayer\obj\Debug\AppLayer.dll
+C:\Users\boaho\source\repos\FFPP\AppLayer\obj\Debug\AppLayer.pdb
