@@ -20,7 +20,7 @@ namespace FloatyFloatPewPew
 
         private void SingleplayerButtonClick(object sender, EventArgs e)
         {
-            // Set game to a Singleplayer.
+            // Set game to Singleplayer.
             // Initialize players.
             SinglePlayer.Instance.player1 = new Player();
             SinglePlayer.Instance.player2 = new Player();
@@ -35,14 +35,18 @@ namespace FloatyFloatPewPew
             //TO DO.  Connect to server and start sending messages
         private void MultiplayerButtonClick(object sender, EventArgs e)
         {
-            
+
             //set game to mulitplayer
 
             //show connect form
+            Multiplayer.Instance.player1 = new Player();
+            LobbyConnectionForm lobbyConnectionForm = new LobbyConnectionForm();
+            lobbyConnectionForm.Location = Location;
+            lobbyConnectionForm.Show();
+            Hide();
 
-            
 
-            
+
         }
 
         private void AboutButtonClick(object sender, EventArgs e)

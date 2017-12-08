@@ -1,4 +1,5 @@
 ﻿namespace FloatyFloatPewPew
+{ 
     partial class LobbyConnectionForm
     {
         /// <summary>
@@ -142,6 +143,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LobbyConnectionForm";
             this.Text = "FFPP: Lobby Connection";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LobbyConnectionFormClosing);
             connectionSettingsGroupBox.ResumeLayout(false);
             connectionSettingsGroupBox.PerformLayout();
             this.ResumeLayout(false);
