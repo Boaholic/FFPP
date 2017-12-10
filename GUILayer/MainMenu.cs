@@ -58,6 +58,7 @@ namespace FloatyFloatPewPew
        
         private void MainMenuFormClosing(object sender, FormClosingEventArgs e)
         {
+            Multiplayer.Instance.Processor.Stop();
             Application.Exit();
         }
     }

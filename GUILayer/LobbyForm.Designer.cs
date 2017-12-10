@@ -30,15 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyForm));
             this.chatGroupBox = new System.Windows.Forms.GroupBox();
+            this.chatMessages = new System.Windows.Forms.RichTextBox();
             this.chatTextBox = new System.Windows.Forms.TextBox();
             this.sendButton = new System.Windows.Forms.Button();
-            this.chatMessages = new System.Windows.Forms.RichTextBox();
             this.gameGroupBox = new System.Windows.Forms.GroupBox();
             this.openGames = new System.Windows.Forms.ListBox();
             this.joinButton = new System.Windows.Forms.Button();
             this.createGame = new System.Windows.Forms.Button();
+            this.joinedGamesGroupBox = new System.Windows.Forms.GroupBox();
+            this.joinedGames = new System.Windows.Forms.ListBox();
+            this.LobbyLog = new System.Windows.Forms.GroupBox();
+            this.lobbyLogTextBox = new System.Windows.Forms.RichTextBox();
+            this.leaveButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.createGameTextBox = new System.Windows.Forms.TextBox();
             this.chatGroupBox.SuspendLayout();
             this.gameGroupBox.SuspendLayout();
+            this.joinedGamesGroupBox.SuspendLayout();
+            this.LobbyLog.SuspendLayout();
             this.SuspendLayout();
             // 
             // chatGroupBox
@@ -50,6 +59,14 @@
             this.chatGroupBox.TabIndex = 0;
             this.chatGroupBox.TabStop = false;
             this.chatGroupBox.Text = "Chat";
+            // 
+            // chatMessages
+            // 
+            this.chatMessages.Location = new System.Drawing.Point(6, 21);
+            this.chatMessages.Name = "chatMessages";
+            this.chatMessages.Size = new System.Drawing.Size(469, 244);
+            this.chatMessages.TabIndex = 0;
+            this.chatMessages.Text = "";
             // 
             // chatTextBox
             // 
@@ -66,21 +83,14 @@
             this.sendButton.TabIndex = 1;
             this.sendButton.Text = "Send";
             this.sendButton.UseVisualStyleBackColor = true;
-            // 
-            // chatMessages
-            // 
-            this.chatMessages.Location = new System.Drawing.Point(6, 21);
-            this.chatMessages.Name = "chatMessages";
-            this.chatMessages.Size = new System.Drawing.Size(469, 244);
-            this.chatMessages.TabIndex = 0;
-            this.chatMessages.Text = "";
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // gameGroupBox
             // 
             this.gameGroupBox.Controls.Add(this.openGames);
             this.gameGroupBox.Location = new System.Drawing.Point(499, 12);
             this.gameGroupBox.Name = "gameGroupBox";
-            this.gameGroupBox.Size = new System.Drawing.Size(225, 277);
+            this.gameGroupBox.Size = new System.Drawing.Size(225, 232);
             this.gameGroupBox.TabIndex = 2;
             this.gameGroupBox.TabStop = false;
             this.gameGroupBox.Text = "Open Games";
@@ -91,32 +101,100 @@
             this.openGames.ItemHeight = 16;
             this.openGames.Location = new System.Drawing.Point(11, 21);
             this.openGames.Name = "openGames";
-            this.openGames.Size = new System.Drawing.Size(208, 244);
+            this.openGames.Size = new System.Drawing.Size(208, 196);
             this.openGames.TabIndex = 0;
             // 
             // joinButton
             // 
-            this.joinButton.Location = new System.Drawing.Point(499, 294);
+            this.joinButton.Location = new System.Drawing.Point(742, 33);
             this.joinButton.Name = "joinButton";
             this.joinButton.Size = new System.Drawing.Size(106, 23);
             this.joinButton.TabIndex = 3;
             this.joinButton.Text = "Join Game";
             this.joinButton.UseVisualStyleBackColor = true;
+            this.joinButton.Click += new System.EventHandler(this.joinButton_Click);
             // 
             // createGame
             // 
-            this.createGame.Location = new System.Drawing.Point(611, 294);
+            this.createGame.Location = new System.Drawing.Point(742, 145);
             this.createGame.Name = "createGame";
-            this.createGame.Size = new System.Drawing.Size(113, 23);
+            this.createGame.Size = new System.Drawing.Size(106, 23);
             this.createGame.TabIndex = 4;
             this.createGame.Text = "Create Game";
             this.createGame.UseVisualStyleBackColor = true;
+            this.createGame.Click += new System.EventHandler(this.createGame_Click);
+            // 
+            // joinedGamesGroupBox
+            // 
+            this.joinedGamesGroupBox.Controls.Add(this.textBox1);
+            this.joinedGamesGroupBox.Controls.Add(this.joinedGames);
+            this.joinedGamesGroupBox.Location = new System.Drawing.Point(867, 12);
+            this.joinedGamesGroupBox.Name = "joinedGamesGroupBox";
+            this.joinedGamesGroupBox.Size = new System.Drawing.Size(225, 232);
+            this.joinedGamesGroupBox.TabIndex = 3;
+            this.joinedGamesGroupBox.TabStop = false;
+            this.joinedGamesGroupBox.Text = "Joined Games";
+            // 
+            // joinedGames
+            // 
+            this.joinedGames.FormattingEnabled = true;
+            this.joinedGames.ItemHeight = 16;
+            this.joinedGames.Location = new System.Drawing.Point(11, 21);
+            this.joinedGames.Name = "joinedGames";
+            this.joinedGames.Size = new System.Drawing.Size(208, 196);
+            this.joinedGames.TabIndex = 0;
+            // 
+            // LobbyLog
+            // 
+            this.LobbyLog.Controls.Add(this.lobbyLogTextBox);
+            this.LobbyLog.Location = new System.Drawing.Point(499, 250);
+            this.LobbyLog.Name = "LobbyLog";
+            this.LobbyLog.Size = new System.Drawing.Size(593, 72);
+            this.LobbyLog.TabIndex = 1;
+            this.LobbyLog.TabStop = false;
+            this.LobbyLog.Text = "Log";
+            // 
+            // lobbyLogTextBox
+            // 
+            this.lobbyLogTextBox.Location = new System.Drawing.Point(6, 21);
+            this.lobbyLogTextBox.Name = "lobbyLogTextBox";
+            this.lobbyLogTextBox.Size = new System.Drawing.Size(581, 47);
+            this.lobbyLogTextBox.TabIndex = 0;
+            this.lobbyLogTextBox.Text = "";
+            // 
+            // leaveButton
+            // 
+            this.leaveButton.Location = new System.Drawing.Point(742, 62);
+            this.leaveButton.Name = "leaveButton";
+            this.leaveButton.Size = new System.Drawing.Size(106, 23);
+            this.leaveButton.TabIndex = 5;
+            this.leaveButton.Text = "Leave Game";
+            this.leaveButton.UseVisualStyleBackColor = true;
+            this.leaveButton.Click += new System.EventHandler(this.leaveButton_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(-125, 96);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(106, 22);
+            this.textBox1.TabIndex = 6;
+            // 
+            // createGameTextBox
+            // 
+            this.createGameTextBox.Location = new System.Drawing.Point(742, 117);
+            this.createGameTextBox.Name = "createGameTextBox";
+            this.createGameTextBox.Size = new System.Drawing.Size(105, 22);
+            this.createGameTextBox.TabIndex = 6;
             // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 334);
+            this.ClientSize = new System.Drawing.Size(1108, 334);
+            this.Controls.Add(this.createGameTextBox);
+            this.Controls.Add(this.leaveButton);
+            this.Controls.Add(this.LobbyLog);
+            this.Controls.Add(this.joinedGamesGroupBox);
             this.Controls.Add(this.createGame);
             this.Controls.Add(this.joinButton);
             this.Controls.Add(this.gameGroupBox);
@@ -126,8 +204,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LobbyForm";
             this.Text = "Floaty Floaty PEW PEW: Lobby";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LobbyFormClosing);
             this.chatGroupBox.ResumeLayout(false);
             this.gameGroupBox.ResumeLayout(false);
+            this.joinedGamesGroupBox.ResumeLayout(false);
+            this.joinedGamesGroupBox.PerformLayout();
+            this.LobbyLog.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +225,12 @@
         private System.Windows.Forms.ListBox openGames;
         private System.Windows.Forms.Button joinButton;
         private System.Windows.Forms.Button createGame;
+        private System.Windows.Forms.GroupBox joinedGamesGroupBox;
+        private System.Windows.Forms.ListBox joinedGames;
+        private System.Windows.Forms.GroupBox LobbyLog;
+        private System.Windows.Forms.RichTextBox lobbyLogTextBox;
+        private System.Windows.Forms.Button leaveButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox createGameTextBox;
     }
 }

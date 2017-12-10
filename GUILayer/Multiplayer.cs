@@ -32,6 +32,7 @@ namespace FloatyFloatPewPew
         }
         public override void Initialize()
         {
+            Processor = new DataProcessor();
             playerSwitch = true;
             roundCount = 1;
             gameMode = true;

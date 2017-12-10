@@ -62,26 +62,35 @@ namespace FloatyFloatPewPew
             {
                 Multiplayer.Instance.StartProccessor();
                 FFPPCommunication.Message request = CreateConnectMessage();
-                bool requestSent = Multiplayer.Instance.Processor.SendRequest(request);
+                Communicator ConnectCommunicator = new Communicator();
+                bool requestSent = ConnectCommunicator.Send(request, Multiplayer.Instance.Processor.ServerEndPoint);
                 if(requestSent)
                 {
                     int attempts = 0;
-                    string response = null;
+                    FFPPCommunication.Message response = null;
+                    string[] props = new string[10];
                     while (attempts < 3 && response == null)
                     {
-                        response = Multiplayer.Instance.Processor.GetConnectResponse();
-                        Thread.Sleep(100);
+                        response = ConnectCommunicator.Receive(1000);
+                        if(response != null)
+                        {
+                            props = response.messageBody.Split('|'); 
+                        }
+                        attempts++;
+                        Thread.Sleep(1000);
+
                     }
 
-                    if (response == null || response == "Failed")
+                    if (response == null || props[1] == "False")
                     {
                         MessageBox.Show("Unable to Connect to the server at this time", "FFPP: Errors!");
                     }
                     else
                     {
                         //show lobby form
-                        LobbyForm lobbyForm = new LobbyForm();
-                        lobbyForm.Location = Location;
+                        LobbyForm lobbyForm = Multiplayer.Instance.Processor.Lobby;
+
+                        lobbyForm.PopulateGames(props[3]);
                         lobbyForm.Show();
                         // Dispose does not trigger FormClosing event.
                         Dispose();
@@ -129,7 +138,13 @@ namespace FloatyFloatPewPew
 
         private FFPPCommunication.Message CreateConnectMessage()
         {
-            FFPPCommunication.Message message = new FFPPCommunication.Message(FFPPCommunication.Message.messageType.JOIN, $"Connect|{Multiplayer.Instance.player1.Name}");
+            string LocalAddress = Multiplayer.Instance.Processor.LocalEndPoint.Address.ToString();
+            string LocalPort = Multiplayer.Instance.Processor.LocalEndPoint.Port.ToString();
+            if (LocalAddress == "0.0.0.0")
+            {
+                LocalAddress = "127.0.0.1";
+            }
+            FFPPCommunication.Message message = new FFPPCommunication.Message(FFPPCommunication.Message.messageType.JOIN, $"Connect|{Multiplayer.Instance.player1.Name}|{LocalAddress}|{LocalPort}");
             return message;
         }
     }
